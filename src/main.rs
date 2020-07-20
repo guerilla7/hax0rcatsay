@@ -6,7 +6,7 @@ use structopt::StructOpt;
 struct Options {
     #[structopt(default_value = "Meowz!")]
     /// What does the cat say?
-    message: String, // [1]
+    message: String,
 
     #[structopt(short = "d", long = "dead")]
     /// Make the cat appear dead

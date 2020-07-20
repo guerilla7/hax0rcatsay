@@ -14,4 +14,4 @@ fn main() {
     let message = options.message;
     println!("{}", message);
     // ...print the cat
-}cle
+}

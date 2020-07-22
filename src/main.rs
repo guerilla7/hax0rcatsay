@@ -2,6 +2,9 @@ extern crate structopt;
 
 use structopt::StructOpt;
 
+extern crate colored;
+use colored::*;
+
 #[derive(StructOpt)]
 struct Options {
     #[structopt(default_value = "Meowz!")]
@@ -16,13 +19,16 @@ struct Options {
 fn main() {
     let options = Options::from_args(); //
     let message = options.message;
-
+    if message.to_lowercase() == "woof" {
+        eprintln!("A cat shouldn't bark like a dog.")
+    }
     let eye = if options.dead { "x" } else { "o" }; // [1]
 
-    println!("{}", message);
+    println!("{}", message.bright_yellow().underline()
+    .on_purple());
     println!(" \\");
     println!("  \\");
     println!("     /\\_/\\");
-    println!("    ( {eye} {eye} )", eye=eye); // [2]
+    println!("    ( {eye} {eye} )", eye=eye.red().bold()); // [2]
     println!("    =( I )=");
 }

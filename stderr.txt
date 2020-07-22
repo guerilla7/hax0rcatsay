@@ -1,0 +1,3 @@
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/hax0rcatsay woof`
+A cat shouldn't bark like a dog.

@@ -28,6 +28,20 @@ fn main() {
     }
     let eye = if options.dead { "x" } else { "o" }; // [1]
 
+    println!("{}", message);
+
+    match &options.catfile {
+        Some (path) => {
+            let cat_template  = std::fs::read_to_string(path)
+                    .expect(&format!("could not read file {:?}", path));
+            let cat_picture = cat_template.replace("{eye}", eye);
+            println!("{}", &cat_picture);
+    },
+    None => {
+        // ... print the cat as before
+    }
+}
+
     println!("{}", message.bright_yellow().underline()
     .on_purple());
     println!(" \\");
